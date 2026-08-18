@@ -1,0 +1,41 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "aidds-backend"
+version = "1.0.0"
+description = "Analytics backend for the CSE Admissions process"
+authors = ["CSE Admissions Team"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "0.115.6"
+uvicorn = {version = "0.34.0", extras = ["standard"]}
+sqlalchemy = {version = "2.0.36", extras = ["asyncio"]}
+asyncpg = "0.30.0"
+psycopg2-binary = "2.9.10"
+alembic = "1.14.0"
+pydantic = "2.10.4"
+pydantic-settings = "2.7.0"
+email-validator = "2.2.0"
+PyJWT = "2.10.1"
+bcrypt = "4.2.1"
+python-multipart = "0.0.20"
+itsdangerous = "2.2.0"
+slowapi = "0.1.9"
+cachetools = "5.5.0"
+python-json-logger = "3.2.1"
+openpyxl = "3.1.5"
+reportlab = "4.2.5"
+httpx = "0.28.1"
+aiosqlite = "0.20.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "8.3.4"
+pytest-asyncio = "0.25.0"
+
+[tool.pytest.ini_options]
+testpaths = ["app/tests"]
+asyncio_mode = "auto"

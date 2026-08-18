@@ -1,0 +1,25 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
+export function useMediaQuery(query: string): boolean {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    const handler = () => setMatches(media.matches);
+    handler();
+    media.addEventListener('change', handler);
+    return () => media.removeEventListener('change', handler);
+  }, [query]);
+
+  return matches;
+}
+
+export function useIsMobile() {
+  return useMediaQuery('(max-width: 767px)');
+}
+
+export function useIsDesktop() {
+  return useMediaQuery('(min-width: 1024px)');
+}
